@@ -1,41 +1,53 @@
-package co.edu.uniquindio.poo.proyectofinalp2.model;
+package model;
 
 public class Tarifa {
-    private double base;
-    private double peso;
-    private double volumen;
-    private double prioridad;
-    private double recargos;
+    private String idTarifa;
+    private TarifaStrategy estrategia;
+    private double costoBase;
+    private double costoDistancia;
+    private double costoPeso;
+    private double costoVolumen;
+    private double recargoPrioridad;
 
-    public Tarifa(double base, double peso, double volumen, double prioridad, double recargos) {
-        this.base = base;
-        this.peso = peso;
-        this.volumen = volumen;
-        this.prioridad = prioridad;
-        this.recargos = recargos;
+    public Tarifa(TarifaStrategy estrategia) {
+        this.estrategia = estrategia;
     }
 
-    public double calcularCostoTotal() {
-        return base + peso + volumen + prioridad + recargos;
+    public double calcularCosto(Direccion origen, Direccion destino, double peso, double volumen, String prioridad) {
+        return estrategia.calcularCosto(origen, destino, peso, volumen, prioridad);
     }
 
-    public double getBase() {
-        return base;
-    }
-    public double getPeso() {
-        return peso;
-    }
-    public double getVolumen() {
-        return volumen;
-    }
-    public double getPrioridad() {
-        return prioridad;
-    }
-    public double getRecargos() {
-        return recargos;
+    public void desglosarTarifa(Direccion origen, Direccion destino, double peso, double volumen, String prioridad) {
+        // Este método permite desglosar los componentes de la tarifa
+        // Implementación simplificada
+        this.costoBase = 5000;
+        double distancia = calcularDistancia(origen, destino);
+        this.costoDistancia = distancia * 500;
+        this.costoPeso = peso * 200;
+        this.costoVolumen = volumen * 1000;
+        
+        double costoTotal = costoBase + costoDistancia + costoPeso + costoVolumen;
+        if ("ALTA".equals(prioridad)) {
+            this.recargoPrioridad = costoTotal * 0.5;
+        } else if ("MEDIA".equals(prioridad)) {
+            this.recargoPrioridad = costoTotal * 0.2;
+        } else {
+            this.recargoPrioridad = 0;
+        }
     }
 
-    public String InfoTarifa() {
-        return "Base: " + base + ", Peso: " + peso + ", Volumen: " + volumen + ", Prioridad: " + prioridad + ", Recargos: " + recargos;
+    private double calcularDistancia(Direccion origen, Direccion destino) {
+        double latDiff = destino.getLatitud() - origen.getLatitud();
+        double lonDiff = destino.getLongitud() - origen.getLongitud();
+        return Math.sqrt(latDiff * latDiff + lonDiff * lonDiff) * 111;
     }
+
+    // Getters para el desglose
+    public double getCostoBase() { return costoBase; }
+    public double getCostoDistancia() { return costoDistancia; }
+    public double getCostoPeso() { return costoPeso; }
+    public double getCostoVolumen() { return costoVolumen; }
+    public double getRecargoPrioridad() { return recargoPrioridad; }
 }
+
+

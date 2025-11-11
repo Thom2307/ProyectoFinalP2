@@ -1,52 +1,40 @@
-package co.edu.uniquindio.poo.proyectofinalp2.model;
+package model;
 
 import java.time.LocalDateTime;
-import java.util.UUID;
 
 public class Pago {
-    public enum ResultadoPago {
-        APROBADO, RECHAZADO
-    }
-
     private String idPago;
+    private Envio envio;
     private double monto;
     private LocalDateTime fecha;
-    private String metodoPago; // Simulado
-    private ResultadoPago resultado;
+    private MetodoPago metodoPago;
+    private String resultado; // APROBADO, RECHAZADO
 
-    public Pago(double monto, String metodoPago, ResultadoPago resultado) {
-        this.idPago = UUID.randomUUID().toString();
+    public Pago(String idPago, Envio envio, double monto, MetodoPago metodoPago, String resultado) {
+        this.idPago = idPago;
+        this.envio = envio;
         this.monto = monto;
         this.fecha = LocalDateTime.now();
         this.metodoPago = metodoPago;
         this.resultado = resultado;
     }
 
-    // Getters y setters
-    public String getIdPago() {
-        return idPago;
-    }
+    // Getters y Setters
+    public String getIdPago() { return idPago; }
+    public void setIdPago(String idPago) { this.idPago = idPago; }
+    public Envio getEnvio() { return envio; }
+    public void setEnvio(Envio envio) { this.envio = envio; }
+    public double getMonto() { return monto; }
+    public void setMonto(double monto) { this.monto = monto; }
+    public LocalDateTime getFecha() { return fecha; }
+    public void setFecha(LocalDateTime fecha) { this.fecha = fecha; }
+    public MetodoPago getMetodoPago() { return metodoPago; }
+    public void setMetodoPago(MetodoPago metodoPago) { this.metodoPago = metodoPago; }
+    public String getResultado() { return resultado; }
+    public void setResultado(String resultado) { this.resultado = resultado; }
 
-    public double getMonto() {
-        return monto;
-    }
-    public void setMonto(double monto) {
-        this.monto = monto;
-    }
-    public LocalDateTime getFecha() {
-        return fecha;
-    }
-    public String getMetodoPago() {
-        return metodoPago;
-    }
-    public void setMetodoPago(String metodoPago) {
-        this.metodoPago = metodoPago;
-    }
-
-    public ResultadoPago getResultado() {
-        return resultado;
-    }
-    public void setResultado(ResultadoPago resultado) {
-        this.resultado = resultado;
+    @Override
+    public String toString() {
+        return "Pago #" + idPago + " - $" + monto + " - " + resultado;
     }
 }
