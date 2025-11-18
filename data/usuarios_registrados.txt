@@ -1,0 +1,20 @@
+================================================================================
+USUARIO DE PRUEBA - SISTEMA DE LOGÍSTICA
+================================================================================
+
+Fecha de Registro: 2025-11-17 21:44:08
+
+ID Usuario: usuario
+Nombre: Usuario Prueba
+Correo: usuario@test.com
+Teléfono: 3001234567
+Contraseña: usuario123
+Es Administrador: No
+Número de Direcciones: 2
+
+Direcciones:
+  - Casa: Calle 15 #4-25, Armenia
+  - Oficina: Carrera 20 #5-30, Calarcá
+Métodos de Pago: TARJETA, PSE
+
+================================================================================

@@ -1,0 +1,251 @@
+/* Paleta de colores moderna para logística */
+.root {
+    -fx-background-color: #f8fafc;
+}
+
+/* Botones */
+.button {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10px 20px;
+    -fx-background-radius: 8px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 5, 0, 0, 2);
+}
+
+.button:hover {
+    -fx-background-color: #1d4ed8;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 8, 0, 0, 3);
+}
+
+.button:pressed {
+    -fx-background-color: #1e40af;
+}
+
+.button-secondary {
+    -fx-background-color: #10b981;
+}
+
+.button-secondary:hover {
+    -fx-background-color: #059669;
+}
+
+.button-danger {
+    -fx-background-color: #ef4444;
+}
+
+.button-danger:hover {
+    -fx-background-color: #dc2626;
+}
+
+.button:disabled {
+    -fx-background-color: #cbd5e1;
+    -fx-text-fill: #64748b;
+    -fx-cursor: default;
+}
+
+/* Cards */
+.card {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 20px;
+}
+
+/* Text Fields */
+.text-field, .password-field, .combo-box {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-padding: 10px;
+    -fx-font-size: 14px;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #2563eb;
+    -fx-border-width: 2px;
+}
+
+.text-field:error {
+    -fx-border-color: #ef4444;
+}
+
+/* Labels */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #1e293b;
+}
+
+.label-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.label-subtitle {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1e293b;
+}
+
+.label-success {
+    -fx-text-fill: #10b981;
+    -fx-font-weight: bold;
+}
+
+.label-danger {
+    -fx-text-fill: #ef4444;
+    -fx-font-weight: bold;
+}
+
+.label-warning {
+    -fx-text-fill: #f59e0b;
+    -fx-font-weight: bold;
+}
+
+/* Table View */
+.table-view {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 8px;
+}
+
+.table-view .column-header {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #dbeafe;
+}
+
+/* Scroll Pane */
+.scroll-pane {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* Tab Pane */
+.tab-pane {
+    -fx-background-color: white;
+}
+
+.tab {
+    -fx-background-color: #e2e8f0;
+    -fx-padding: 10px 20px;
+}
+
+.tab:selected {
+    -fx-background-color: #2563eb;
+    -fx-text-fill: white;
+}
+
+/* Progress Bar */
+.progress-bar {
+    -fx-accent: #2563eb;
+}
+
+/* Check Box */
+.check-box {
+    -fx-font-size: 14px;
+}
+
+.check-box .box {
+    -fx-background-color: white;
+    -fx-border-color: #e2e8f0;
+    -fx-border-radius: 4px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #2563eb;
+}
+
+/* VBox y HBox con spacing */
+.vbox-spacing {
+    -fx-spacing: 15px;
+}
+
+.hbox-spacing {
+    -fx-spacing: 10px;
+}
+
+/* Badge para estados */
+.badge {
+    -fx-padding: 5px 12px;
+    -fx-background-radius: 12px;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.badge-success {
+    -fx-background-color: #d1fae5;
+    -fx-text-fill: #065f46;
+}
+
+.badge-warning {
+    -fx-background-color: #fef3c7;
+    -fx-text-fill: #92400e;
+}
+
+.badge-danger {
+    -fx-background-color: #fee2e2;
+    -fx-text-fill: #991b1b;
+}
+
+.badge-info {
+    -fx-background-color: #dbeafe;
+    -fx-text-fill: #1e40af;
+}
+
+/* Panel de navegación */
+.nav-panel {
+    -fx-background-color: #1e293b;
+    -fx-padding: 20px;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-font-size: 16px;
+    -fx-padding: 15px 20px;
+    -fx-alignment: center-left;
+    -fx-cursor: hand;
+}
+
+.nav-button:hover {
+    -fx-background-color: #334155;
+}
+
+.nav-button.active {
+    -fx-background-color: #2563eb;
+}
+
+/* Dashboard cards */
+.metric-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 10, 0, 0, 2);
+    -fx-padding: 20px;
+    -fx-min-width: 200px;
+    -fx-min-height: 120px;
+}
+
+.metric-value {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #2563eb;
+}
+
+.metric-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #64748b;
+}
+

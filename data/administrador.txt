@@ -1,0 +1,19 @@
+================================================================================
+INFORMACIÓN DEL ADMINISTRADOR - SISTEMA DE LOGÍSTICA
+================================================================================
+
+Fecha de Actualización: 2025-11-17 21:44:08
+
+ID Usuario: admin
+Nombre: Administrador Sistema
+Correo: admin@logistics.com
+Teléfono: 3000000000
+Contraseña: admin123
+Es Administrador: Sí
+Número de Direcciones: 1
+
+Direcciones:
+  - Oficina Principal: Carrera 14 #6-10, Armenia
+Métodos de Pago: TARJETA
+
+================================================================================
