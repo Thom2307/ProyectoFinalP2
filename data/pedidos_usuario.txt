@@ -1,0 +1,134 @@
+================================================================================
+REGISTRO DE PEDIDOS - SISTEMA DE LOGÍSTICA
+================================================================================
+
+Fecha de Creación: 2025-11-17 21:48:47
+ID Envío: envb77fd047
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Calle 15 #4-25, Armenia
+Peso: 14.0 kg
+Costo: $953,10
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: SEGURO
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 21:49:23
+ID Envío: env0130c7f0
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle 15 #4-25, Armenia
+Destino: Carrera 14 #6-10, Armenia
+Peso: 56.0 kg
+Costo: $4884,96
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: FRAGIL
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 21:48:47
+ID Envío: envb77fd047
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Calle 15 #4-25, Armenia
+Peso: 14.0 kg
+Costo: $953,10
+Estado: ASIGNADO
+Repartidor: No asignado
+Servicios Adicionales: SEGURO
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 21:49:23
+ID Envío: env0130c7f0
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle 15 #4-25, Armenia
+Destino: Carrera 14 #6-10, Armenia
+Peso: 56.0 kg
+Costo: $4884,96
+Estado: CANCELADO
+Repartidor: No asignado
+Servicios Adicionales: FRAGIL
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 22:00:45
+ID Envío: env4ab6370f
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle 15 #4-25, Armenia
+Destino: Carrera 14 #6-10, Armenia
+Peso: 10.0 kg
+Costo: $3000,00
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: FIRMA
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 22:01:14
+ID Envío: enva05c5d80
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Calle 15 #4-25, Armenia
+Peso: 14.0 kg
+Costo: $953,10
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: SEGURO
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 22:25:25
+ID Envío: env3048872c
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Calle 15 #4-25, Armenia
+Peso: 15.0 kg
+Costo: $1604,96
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: FRAGIL
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 22:25:47
+ID Envío: env1533e4c8
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 10.0 kg
+Costo: $3000,00
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: FIRMA
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 22:35:17
+ID Envío: enva3b5c0e9
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle 15 #4-25, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 13.0 kg
+Costo: $19401,94
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: SEGURO
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-17 22:35:57
+ID Envío: env40d27af7
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 30.0 kg
+Costo: $43792,55
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: FIRMA, PRIORIDAD
+--------------------------------------------------------------------------------
+

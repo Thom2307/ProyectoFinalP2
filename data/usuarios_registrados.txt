@@ -2,7 +2,7 @@
 USUARIO DE PRUEBA - SISTEMA DE LOGÍSTICA
 ================================================================================
 
-Fecha de Registro: 2025-11-17 21:44:08
+Fecha de Registro: 2025-11-17 22:41:48
 
 ID Usuario: usuario
 Nombre: Usuario Prueba

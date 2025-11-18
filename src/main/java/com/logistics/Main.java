@@ -2,7 +2,7 @@ package com.logistics;
 
 import com.logistics.util.DatosIniciales;
 import com.logistics.util.NavigationManager;
-import com.logistics.view.MainMenuView;
+import com.logistics.viewController.MainMenuView;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

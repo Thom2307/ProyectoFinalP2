@@ -1,10 +1,12 @@
 package com.logistics.controller.usuario;
 
+import com.logistics.model.dto.TarifaDTO;
 import com.logistics.model.entities.Direccion;
 import com.logistics.model.entities.Usuario;
 import com.logistics.patterns.creational.singleton.InMemoryDatabase;
 import com.logistics.patterns.structural.facade.EnvioFacade;
 import com.logistics.repository.UsuarioRepository;
+import com.logistics.service.TarifaService;
 import com.logistics.util.NavigationManager;
 import javafx.scene.control.ComboBox;
 import java.util.ArrayList;
@@ -14,11 +16,13 @@ public class CrearEnvioController {
     private EnvioFacade envioFacade;
     private UsuarioRepository usuarioRepository;
     private List<Direccion> todasLasDirecciones;
+    private TarifaService tarifaService;
 
     public CrearEnvioController() {
         this.envioFacade = new EnvioFacade();
         this.usuarioRepository = new UsuarioRepository();
         this.todasLasDirecciones = new ArrayList<>();
+        this.tarifaService = new TarifaService();
         cargarTodasLasDirecciones();
     }
 
@@ -48,7 +52,7 @@ public class CrearEnvioController {
         });
     }
 
-    public void crearEnvio(String origenTexto, String destinoTexto, double peso, 
+    public com.logistics.model.dto.EnvioDTO crearEnvio(String origenTexto, String destinoTexto, double peso, 
                           List<String> servicios, String metodoPago) {
         String usuarioId = NavigationManager.getInstance().getUsuarioActualId();
         Usuario usuario = usuarioRepository.findById(usuarioId);
@@ -85,7 +89,38 @@ public class CrearEnvioController {
             throw new IllegalArgumentException("El origen y destino no pueden ser la misma dirección.");
         }
 
-        envioFacade.crearEnvioCompleto(origen, destino, peso, usuario, servicios, metodoPago);
+        return envioFacade.crearEnvioCompleto(origen, destino, peso, usuario, servicios, metodoPago);
+    }
+    
+    public com.logistics.model.dto.PagoDTO obtenerPagoPorEnvio(String idEnvio) {
+        com.logistics.service.PagoService pagoService = new com.logistics.service.PagoService();
+        java.util.List<com.logistics.model.dto.PagoDTO> pagos = pagoService.obtenerPagosPorEnvio(idEnvio);
+        return pagos.isEmpty() ? null : pagos.get(pagos.size() - 1); // Retornar el último pago
+    }
+    
+    public Direccion obtenerDireccionPorTexto(String texto) {
+        return todasLasDirecciones.stream()
+            .filter(d -> {
+                String dirTexto = String.format("%s - %s, %s", 
+                    d.getAlias(), d.getCalle(), d.getCiudad());
+                return dirTexto.equals(texto);
+            })
+            .findFirst()
+            .orElse(null);
+    }
+    
+    public TarifaDTO calcularTarifaEstimada(double latOrigen, double lonOrigen,
+                                           double latDestino, double lonDestino,
+                                           double peso, List<String> serviciosAdicionales) {
+        Direccion origen = new Direccion("temp", "Origen", "", "", latOrigen, lonOrigen);
+        Direccion destino = new Direccion("temp", "Destino", "", "", latDestino, lonDestino);
+        
+        com.logistics.model.entities.Envio envio = new com.logistics.model.entities.Envio();
+        envio.setOrigen(origen);
+        envio.setDestino(destino);
+        envio.setPeso(peso);
+        
+        return tarifaService.calcularTarifa(envio, serviciosAdicionales);
     }
 }
 

@@ -2,8 +2,8 @@ package com.logistics.controller;
 
 import com.logistics.service.UsuarioService;
 import com.logistics.util.NavigationManager;
-import com.logistics.view.usuario.DashboardUsuarioView;
-import com.logistics.view.admin.DashboardAdminView;
+import com.logistics.viewController.usuario.DashboardUsuarioView;
+import com.logistics.viewController.admin.DashboardAdminView;
 import javafx.scene.control.Label;
 
 public class LoginController {

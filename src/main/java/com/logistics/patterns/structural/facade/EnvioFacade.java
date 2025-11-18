@@ -10,7 +10,6 @@ import com.logistics.service.TarifaService;
 import com.logistics.service.NotificationService;
 import com.logistics.service.EnvioService;
 import com.logistics.service.PagoService;
-import com.logistics.patterns.behavioral.observer.Subject;
 import java.util.List;
 import java.util.UUID;
 
@@ -43,11 +42,13 @@ public class EnvioFacade {
         envioService.save(envio);
         
         // Strategy pattern para procesar pago
-        pagoService.procesarPago(envio.getIdEnvio(), tarifa.getCostoTotal(), metodoPago);
+        com.logistics.model.dto.PagoDTO pagoDTO = pagoService.procesarPago(envio.getIdEnvio(), tarifa.getCostoTotal(), metodoPago);
         
         // Observer pattern para notificar
         notificationService.notifyUsuario(usuario, "Envío creado con id: " + envio.getIdEnvio());
         
-        return envioService.obtenerEnvio(envio.getIdEnvio());
+        EnvioDTO envioDTO = envioService.obtenerEnvio(envio.getIdEnvio());
+        // Almacenar información del pago en el DTO para mostrarla después
+        return envioDTO;
     }
 }

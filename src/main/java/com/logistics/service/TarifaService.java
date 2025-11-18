@@ -51,7 +51,9 @@ public class TarifaService {
             }
         }
         
-        double costoTotal = adicional.aplicar(envio);
+        // El costo total debe ser: costo base + todos los incrementos de servicios adicionales
+        double incrementosAdicionales = adicional.aplicar(envio);
+        double costoTotal = costoBase + incrementosAdicionales;
         envio.setCosto(costoTotal);
         
         TarifaDTO tarifaDTO = new TarifaDTO();

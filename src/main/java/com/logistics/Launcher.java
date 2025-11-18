@@ -2,7 +2,7 @@ package com.logistics;
 
 /**
  * Clase Launcher alternativa para ejecutar la aplicación
- * Úsala si Main.java no funciona debido a problemas con módulos JavaFX
+ * Usarla si Main.java no funciona
  */
 public class Launcher {
     public static void main(String[] args) {

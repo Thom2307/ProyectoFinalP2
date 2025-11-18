@@ -2,7 +2,7 @@
 INFORMACIÓN DEL ADMINISTRADOR - SISTEMA DE LOGÍSTICA
 ================================================================================
 
-Fecha de Actualización: 2025-11-17 21:44:08
+Fecha de Actualización: 2025-11-17 22:41:48
 
 ID Usuario: admin
 Nombre: Administrador Sistema
