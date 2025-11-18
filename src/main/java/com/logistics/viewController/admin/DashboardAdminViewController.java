@@ -31,15 +31,39 @@ public class DashboardAdminViewController implements Initializable {
     private GestionEstadosController estadosController;
     private ObservableList<EnvioTableItem> datosEnvios;
     
+    public DashboardAdminViewController() {
+        // Constructor público sin argumentos requerido por JavaFX
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.estadosController = new GestionEstadosController();
-        this.datosEnvios = FXCollections.observableArrayList();
-        inicializarTabla();
-        cargarEnviosActivos();
+        try {
+            this.estadosController = new GestionEstadosController();
+            this.datosEnvios = FXCollections.observableArrayList();
+            inicializarTabla();
+            cargarEnviosActivos();
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Si hay un error en la inicialización, al menos inicializar la tabla vacía
+            if (this.datosEnvios == null) {
+                this.datosEnvios = FXCollections.observableArrayList();
+            }
+            if (tablaEnvios != null) {
+                inicializarTabla();
+            }
+        }
     }
     
     private void inicializarTabla() {
+        if (tablaEnvios == null) {
+            return;
+        }
+        
+        // Evitar agregar columnas duplicadas
+        if (!tablaEnvios.getColumns().isEmpty()) {
+            return;
+        }
+        
         // ID Envío
         TableColumn<EnvioTableItem, String> colId = new TableColumn<>("ID Envío");
         colId.setCellValueFactory(new PropertyValueFactory<>("idEnvio"));
@@ -193,26 +217,45 @@ public class DashboardAdminViewController implements Initializable {
     }
 
     private void cargarEnviosActivos() {
-        datosEnvios.clear();
-        java.util.List<EnvioDTO> envios = estadosController.obtenerTodosLosEnvios();
-        
-        for (EnvioDTO envio : envios) {
-            EstadoEnvio estado = envio.getEstado();
-            if (estado == EstadoEnvio.SOLICITADO || 
-                estado == EstadoEnvio.ASIGNADO || 
-                estado == EstadoEnvio.EN_RUTA) {
-                
-                EnvioTableItem item = new EnvioTableItem(
-                    envio.getIdEnvio(),
-                    envio.getEstado(),
-                    envio.getFechaCreacion(),
-                    envio.getCosto(),
-                    "",
-                    "",
-                    null,
-                    envio.getIdUsuario() != null ? envio.getIdUsuario() : "N/A"
-                );
-                datosEnvios.add(item);
+        try {
+            if (datosEnvios == null) {
+                datosEnvios = FXCollections.observableArrayList();
+            }
+            if (estadosController == null) {
+                estadosController = new GestionEstadosController();
+            }
+            
+            datosEnvios.clear();
+            java.util.List<EnvioDTO> envios = estadosController.obtenerTodosLosEnvios();
+            
+            if (envios != null) {
+                for (EnvioDTO envio : envios) {
+                    if (envio != null && envio.getEstado() != null) {
+                        EstadoEnvio estado = envio.getEstado();
+                        if (estado == EstadoEnvio.SOLICITADO || 
+                            estado == EstadoEnvio.ASIGNADO || 
+                            estado == EstadoEnvio.EN_RUTA) {
+                            
+                            EnvioTableItem item = new EnvioTableItem(
+                                envio.getIdEnvio(),
+                                envio.getEstado(),
+                                envio.getFechaCreacion(),
+                                envio.getCosto(),
+                                "",
+                                "",
+                                null,
+                                envio.getIdUsuario() != null ? envio.getIdUsuario() : "N/A"
+                            );
+                            datosEnvios.add(item);
+                        }
+                    }
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            // Si hay un error, al menos mostrar la tabla vacía
+            if (datosEnvios != null) {
+                datosEnvios.clear();
             }
         }
     }

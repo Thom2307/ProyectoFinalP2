@@ -35,13 +35,10 @@
                <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
             </padding>
             <children>
-               <Label text="Gestión de Pedidos Activos">
+               <Label text="Gestión de Pedidos Activos" styleClass="titulo-principal">
                   <font>
                      <Font name="System Bold" size="32.0" />
                   </font>
-                  <styleClass>
-                     <String fx:value="titulo-principal" />
-                  </styleClass>
                </Label>
                <Label text="Administre los pedidos activos del sistema. Use los botones para cambiar estados." style="-fx-text-fill: #64748b;">
                   <font>
@@ -53,13 +50,10 @@
                      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
                   </padding>
                   <children>
-                     <Label text="Lista de Pedidos Activos">
+                     <Label text="Lista de Pedidos Activos" styleClass="tabla-titulo">
                         <font>
                            <Font name="System Bold" size="20.0" />
                         </font>
-                        <styleClass>
-                           <String fx:value="tabla-titulo" />
-                        </styleClass>
                      </Label>
                      <TableView fx:id="tablaEnvios" prefHeight="600.0" style="-fx-background-color: white;" />
                      <HBox alignment="CENTER">
