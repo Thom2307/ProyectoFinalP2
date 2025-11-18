@@ -14,7 +14,10 @@ public class EnvioFileManager {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     /**
-     * Guarda un envío en el archivo de texto
+     * Guarda un envío en el archivo de texto.
+     * Crea el directorio y archivo si no existen, y agrega el envío al final del archivo.
+     * 
+     * @param envio La entidad Envio a guardar en el archivo
      */
     public static void guardarEnvio(Envio envio) {
         try {
@@ -94,14 +97,18 @@ public class EnvioFileManager {
     }
 
     /**
-     * Obtiene la ruta del archivo de envíos
+     * Obtiene la ruta absoluta del archivo donde se guardan los envíos.
+     * 
+     * @return La ruta absoluta del archivo de envíos
      */
     public static String getRutaArchivo() {
         return Paths.get(DIRECTORIO_DATOS, ARCHIVO_ENVIOS).toAbsolutePath().toString();
     }
 
     /**
-     * Verifica si el archivo existe
+     * Verifica si el archivo de envíos existe en el sistema de archivos.
+     * 
+     * @return true si el archivo existe, false en caso contrario
      */
     public static boolean archivoExiste() {
         return Files.exists(Paths.get(DIRECTORIO_DATOS, ARCHIVO_ENVIOS));

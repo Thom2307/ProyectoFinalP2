@@ -13,12 +13,29 @@ import com.logistics.service.PagoService;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * Facade para la creación completa de envíos.
+ * Simplifica el proceso de creación de envíos coordinando múltiples servicios y patrones de diseño.
+ * Utiliza Builder, Decorator, Strategy y Observer patterns.
+ */
 public class EnvioFacade {
     private TarifaService tarifaService = new TarifaService();
     private EnvioService envioService = new EnvioService();
     private NotificationService notificationService = new NotificationService();
     private PagoService pagoService = new PagoService();
 
+    /**
+     * Crea un envío completo en el sistema.
+     * Coordina la construcción del envío, cálculo de tarifa, procesamiento de pago y notificación.
+     * 
+     * @param origen La dirección de origen del envío
+     * @param destino La dirección de destino del envío
+     * @param peso El peso del paquete en kilogramos
+     * @param usuario El usuario que solicita el envío
+     * @param serviciosAdicionales Lista de servicios adicionales seleccionados
+     * @param metodoPago El método de pago a utilizar
+     * @return DTO con la información del envío creado
+     */
     public EnvioDTO crearEnvioCompleto(
             Direccion origen, Direccion destino, double peso, Usuario usuario,
             List<String> serviciosAdicionales, String metodoPago) {

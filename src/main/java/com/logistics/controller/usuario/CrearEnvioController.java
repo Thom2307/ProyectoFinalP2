@@ -12,12 +12,19 @@ import javafx.scene.control.ComboBox;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Controlador para la creación de nuevos envíos.
+ * Gestiona la creación completa de envíos incluyendo validaciones, direcciones y pagos.
+ */
 public class CrearEnvioController {
     private EnvioFacade envioFacade;
     private UsuarioRepository usuarioRepository;
     private List<Direccion> todasLasDirecciones;
     private TarifaService tarifaService;
 
+    /**
+     * Constructor que inicializa los servicios necesarios y carga todas las direcciones disponibles.
+     */
     public CrearEnvioController() {
         this.envioFacade = new EnvioFacade();
         this.usuarioRepository = new UsuarioRepository();
@@ -26,6 +33,10 @@ public class CrearEnvioController {
         cargarTodasLasDirecciones();
     }
 
+    /**
+     * Carga todas las direcciones de todos los usuarios del sistema en memoria.
+     * Se ejecuta al inicializar el controlador para tener acceso rápido a las direcciones.
+     */
     private void cargarTodasLasDirecciones() {
         InMemoryDatabase db = InMemoryDatabase.getInstance();
         db.getUsuarios().values().forEach(usuario -> {
@@ -33,6 +44,12 @@ public class CrearEnvioController {
         });
     }
 
+    /**
+     * Carga las direcciones disponibles en un ComboBox de JavaFX.
+     * Las direcciones se muestran en formato "Alias - Calle, Ciudad" y se ordenan alfabéticamente por ciudad.
+     * 
+     * @param combo El ComboBox de JavaFX donde se cargarán las direcciones
+     */
     public void cargarDirecciones(ComboBox<String> combo) {
         combo.getItems().clear();
         todasLasDirecciones.forEach(direccion -> {
@@ -52,6 +69,18 @@ public class CrearEnvioController {
         });
     }
 
+    /**
+     * Crea un nuevo envío completo en el sistema.
+     * Valida las direcciones, verifica que origen y destino sean diferentes, y crea el envío con pago.
+     * 
+     * @param origenTexto Texto de la dirección de origen en formato "Alias - Calle, Ciudad"
+     * @param destinoTexto Texto de la dirección de destino en formato "Alias - Calle, Ciudad"
+     * @param peso El peso del paquete en kilogramos
+     * @param servicios Lista de servicios adicionales seleccionados
+     * @param metodoPago El método de pago seleccionado (TARJETA, PSE, etc.)
+     * @return DTO del envío creado con toda su información
+     * @throws IllegalArgumentException Si el usuario no existe, las direcciones son inválidas o origen y destino son iguales
+     */
     public com.logistics.model.dto.EnvioDTO crearEnvio(String origenTexto, String destinoTexto, double peso, 
                           List<String> servicios, String metodoPago) {
         String usuarioId = NavigationManager.getInstance().getUsuarioActualId();
@@ -92,12 +121,24 @@ public class CrearEnvioController {
         return envioFacade.crearEnvioCompleto(origen, destino, peso, usuario, servicios, metodoPago);
     }
     
+    /**
+     * Obtiene el último pago asociado a un envío específico.
+     * 
+     * @param idEnvio El identificador único del envío
+     * @return DTO del último pago realizado para el envío, o null si no hay pagos
+     */
     public com.logistics.model.dto.PagoDTO obtenerPagoPorEnvio(String idEnvio) {
         com.logistics.service.PagoService pagoService = new com.logistics.service.PagoService();
         java.util.List<com.logistics.model.dto.PagoDTO> pagos = pagoService.obtenerPagosPorEnvio(idEnvio);
         return pagos.isEmpty() ? null : pagos.get(pagos.size() - 1); // Retornar el último pago
     }
     
+    /**
+     * Busca una dirección por su representación en texto.
+     * 
+     * @param texto El texto de la dirección en formato "Alias - Calle, Ciudad"
+     * @return La dirección encontrada, o null si no existe
+     */
     public Direccion obtenerDireccionPorTexto(String texto) {
         return todasLasDirecciones.stream()
             .filter(d -> {
@@ -109,6 +150,18 @@ public class CrearEnvioController {
             .orElse(null);
     }
     
+    /**
+     * Calcula una tarifa estimada para un envío basándose en coordenadas.
+     * Útil para mostrar una estimación antes de crear el envío definitivo.
+     * 
+     * @param latOrigen Latitud del punto de origen
+     * @param lonOrigen Longitud del punto de origen
+     * @param latDestino Latitud del punto de destino
+     * @param lonDestino Longitud del punto de destino
+     * @param peso El peso del paquete en kilogramos
+     * @param serviciosAdicionales Lista de servicios adicionales seleccionados
+     * @return DTO con el desglose de la tarifa estimada
+     */
     public TarifaDTO calcularTarifaEstimada(double latOrigen, double lonOrigen,
                                            double latDestino, double lonDestino,
                                            double peso, List<String> serviciosAdicionales) {

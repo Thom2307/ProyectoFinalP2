@@ -9,9 +9,24 @@ import com.logistics.util.UsuarioFileManager;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
+/**
+ * Servicio para la gestión de usuarios.
+ * Proporciona operaciones CRUD para usuarios, direcciones y métodos de pago.
+ */
 public class UsuarioService {
     private UsuarioRepository repository = new UsuarioRepository();
 
+    /**
+     * Registra un nuevo usuario en el sistema.
+     * Valida que el correo no esté duplicado y guarda el usuario en memoria y archivo.
+     * 
+     * @param nombre El nombre completo del usuario
+     * @param correo El correo electrónico del usuario (debe ser único)
+     * @param telefono El número de teléfono del usuario
+     * @param contrasena La contraseña del usuario
+     * @return DTO con la información del usuario registrado
+     * @throws IllegalArgumentException Si el correo ya está registrado
+     */
     public UsuarioDTO registrarUsuario(String nombre, String correo, String telefono, String contrasena) {
         if (repository.findByCorreo(correo) != null) {
             throw new IllegalArgumentException("El correo ya está registrado");
@@ -31,6 +46,15 @@ public class UsuarioService {
         return toDTO(usuario);
     }
 
+    /**
+     * Inicia sesión de un usuario con correo y contraseña.
+     * Valida las credenciales y retorna la información del usuario si son correctas.
+     * 
+     * @param correo El correo electrónico del usuario
+     * @param contrasena La contraseña del usuario
+     * @return DTO con la información del usuario autenticado
+     * @throws IllegalArgumentException Si las credenciales son inválidas
+     */
     public UsuarioDTO iniciarSesion(String correo, String contrasena) {
         Usuario usuario = repository.findByCorreo(correo);
         if (usuario == null || !usuario.getContrasena().equals(contrasena)) {
@@ -39,6 +63,16 @@ public class UsuarioService {
         return toDTO(usuario);
     }
 
+    /**
+     * Actualiza la información del perfil de un usuario.
+     * Permite modificar el nombre y teléfono del usuario.
+     * 
+     * @param idUsuario El identificador único del usuario
+     * @param nombre El nuevo nombre del usuario
+     * @param telefono El nuevo teléfono del usuario
+     * @return DTO con la información actualizada del usuario
+     * @throws IllegalArgumentException Si el usuario no existe
+     */
     public UsuarioDTO actualizarPerfil(String idUsuario, String nombre, String telefono) {
         Usuario usuario = repository.findById(idUsuario);
         if (usuario == null) {
@@ -50,6 +84,13 @@ public class UsuarioService {
         return toDTO(usuario);
     }
 
+    /**
+     * Agrega una nueva dirección a un usuario.
+     * 
+     * @param idUsuario El identificador único del usuario
+     * @param direccionDTO DTO con la información de la dirección a agregar
+     * @throws IllegalArgumentException Si el usuario no existe
+     */
     public void agregarDireccion(String idUsuario, DireccionDTO direccionDTO) {
         Usuario usuario = repository.findById(idUsuario);
         if (usuario == null) {
@@ -66,6 +107,13 @@ public class UsuarioService {
         repository.save(usuario);
     }
 
+    /**
+     * Elimina una dirección de un usuario.
+     * 
+     * @param idUsuario El identificador único del usuario
+     * @param idDireccion El identificador único de la dirección a eliminar
+     * @throws IllegalArgumentException Si el usuario no existe
+     */
     public void eliminarDireccion(String idUsuario, String idDireccion) {
         Usuario usuario = repository.findById(idUsuario);
         if (usuario == null) {
@@ -75,6 +123,14 @@ public class UsuarioService {
         repository.save(usuario);
     }
 
+    /**
+     * Agrega un método de pago a un usuario.
+     * Solo agrega el método si no está ya registrado.
+     * 
+     * @param idUsuario El identificador único del usuario
+     * @param metodoPago El método de pago a agregar (TARJETA, PSE, etc.)
+     * @throws IllegalArgumentException Si el usuario no existe
+     */
     public void agregarMetodoPago(String idUsuario, String metodoPago) {
         Usuario usuario = repository.findById(idUsuario);
         if (usuario == null) {
@@ -86,19 +142,41 @@ public class UsuarioService {
         }
     }
 
+    /**
+     * Obtiene una lista de todos los usuarios registrados en el sistema.
+     * 
+     * @return Lista de DTOs con la información de todos los usuarios
+     */
     public java.util.List<UsuarioDTO> listarUsuarios() {
         return repository.findAll().stream().map(this::toDTO).collect(Collectors.toList());
     }
 
+    /**
+     * Elimina un usuario del sistema.
+     * 
+     * @param id El identificador único del usuario a eliminar
+     */
     public void eliminarUsuario(String id) {
         repository.delete(id);
     }
 
+    /**
+     * Obtiene la información de un usuario por su identificador.
+     * 
+     * @param id El identificador único del usuario
+     * @return DTO con la información del usuario, o null si no existe
+     */
     public UsuarioDTO obtenerUsuario(String id) {
         Usuario usuario = repository.findById(id);
         return usuario != null ? toDTO(usuario) : null;
     }
 
+    /**
+     * Convierte una entidad Usuario a su DTO correspondiente.
+     * 
+     * @param usuario La entidad Usuario a convertir
+     * @return DTO con la información del usuario
+     */
     private UsuarioDTO toDTO(Usuario usuario) {
         UsuarioDTO dto = new UsuarioDTO();
         dto.setIdUsuario(usuario.getIdUsuario());
@@ -109,6 +187,12 @@ public class UsuarioService {
         return dto;
     }
 
+    /**
+     * Convierte una entidad Direccion a su DTO correspondiente.
+     * 
+     * @param direccion La entidad Direccion a convertir
+     * @return DTO con la información de la dirección
+     */
     private DireccionDTO toDireccionDTO(Direccion direccion) {
         DireccionDTO dto = new DireccionDTO();
         dto.setIdDireccion(direccion.getIdDireccion());

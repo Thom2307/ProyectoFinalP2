@@ -3,13 +3,28 @@ package com.logistics.controller;
 import com.logistics.service.UsuarioService;
 import com.logistics.util.NavigationManager;
 
+/**
+ * Controlador para el inicio de sesión de administradores.
+ * Gestiona la autenticación y validación de permisos de administrador.
+ */
 public class AdminLoginController {
     private UsuarioService usuarioService;
 
+    /**
+     * Constructor que inicializa el servicio de usuarios.
+     */
     public AdminLoginController() {
         this.usuarioService = new UsuarioService();
     }
 
+    /**
+     * Inicia sesión para un usuario administrador.
+     * Valida las credenciales y verifica que el usuario tenga permisos de administrador.
+     * 
+     * @param usuario El nombre de usuario o correo electrónico (puede ser "admin" o "admin@logistics.com")
+     * @param contrasena La contraseña del usuario
+     * @throws IllegalArgumentException Si los campos están vacíos o el usuario no es administrador
+     */
     public void iniciarSesion(String usuario, String contrasena) {
         if (usuario == null || usuario.isEmpty() || contrasena == null || contrasena.isEmpty()) {
             throw new IllegalArgumentException("Por favor complete todos los campos");
