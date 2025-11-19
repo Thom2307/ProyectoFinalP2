@@ -1,6 +1,6 @@
 package com.logistics.patterns.creational.factory;
 
-import com.logistics.patterns.behavioral.strategy.*;
+import com.logistics.patterns.comportamiento.strategy.*;
 
 /**
  * Factory para crear estrategias de pago.

@@ -3,12 +3,12 @@ package com.logistics.service;
 import com.logistics.model.dto.TarifaDTO;
 import com.logistics.model.entities.Direccion;
 import com.logistics.model.entities.Envio;
-import com.logistics.patterns.structural.decorator.Adicional;
-import com.logistics.patterns.structural.decorator.AdicionalBase;
-import com.logistics.patterns.structural.decorator.FragilDecorator;
-import com.logistics.patterns.structural.decorator.FirmaDecorator;
-import com.logistics.patterns.structural.decorator.PrioridadDecorator;
-import com.logistics.patterns.structural.decorator.SeguroDecorator;
+import com.logistics.patterns.estructural.decorator.Adicional;
+import com.logistics.patterns.estructural.decorator.AdicionalBase;
+import com.logistics.patterns.estructural.decorator.FragilDecorator;
+import com.logistics.patterns.estructural.decorator.FirmaDecorator;
+import com.logistics.patterns.estructural.decorator.PrioridadDecorator;
+import com.logistics.patterns.estructural.decorator.SeguroDecorator;
 import java.util.HashMap;
 import java.util.Map;
 

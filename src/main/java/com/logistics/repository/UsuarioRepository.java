@@ -1,7 +1,7 @@
 package com.logistics.repository;
 
 import com.logistics.model.entities.Usuario;
-import com.logistics.patterns.creational.singleton.InMemoryDatabase;
+import com.logistics.patterns.creacional.singleton.InMemoryDatabase;
 import java.util.List;
 import java.util.stream.Collectors;
 

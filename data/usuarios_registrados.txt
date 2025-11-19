@@ -2,7 +2,7 @@
 USUARIO DE PRUEBA - SISTEMA DE LOGÍSTICA
 ================================================================================
 
-Fecha de Registro: 2025-11-18 15:30:44
+Fecha de Registro: 2025-11-18 23:25:49
 
 ID Usuario: usuario
 Nombre: Usuario Prueba
@@ -10,11 +10,23 @@ Correo: usuario@test.com
 Teléfono: 3001234567
 Contraseña: usuario123
 Es Administrador: No
-Número de Direcciones: 2
+Número de Direcciones: 14
 
 Direcciones:
   - Casa: Calle 15 #4-25, Armenia
-  - Oficina: Carrera 20 #5-30, Calarcá
+  - Oficina Personal: Carrera 20 #5-30, Calarcá
+  - Oficina Armenia: Carrera 14 #6-10, Armenia
+  - Oficina Calarcá: Carrera 20 #5-30, Calarcá
+  - Oficina Filandia: Calle Principal #10-20, Filandia
+  - Oficina Quimbaya: Carrera 5 #3-15, Quimbaya
+  - Oficina Montenegro: Avenida Central #8-25, Montenegro
+  - Oficina Tebaida: Calle 10 #5-10, Tebaida
+  - Oficina Pueblo Tapao: Vía Principal, Pueblo Tapao
+  - Oficina Génova: Carrera 3 #2-8, Génova
+  - Oficina Pijao: Calle 5 #4-12, Pijao
+  - Oficina Caicedonia: Avenida Principal #6-20, Caicedonia
+  - Oficina Circasia: Carrera 10 #8-15, Circasia
+  - Oficina Salento: Calle Real #12-25, Salento
 Métodos de Pago: TARJETA, PSE
 
 ================================================================================

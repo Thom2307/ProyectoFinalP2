@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TableView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Region?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Font?>
 
 <BorderPane style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.logistics.viewController.admin.DashboardAdminViewController">
@@ -29,43 +23,60 @@
       </HBox>
    </top>
    <center>
-      <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;">
-         <VBox alignment="TOP_CENTER" spacing="25.0">
-            <padding>
-               <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
-            </padding>
-            <children>
-               <Label text="Gestión de Pedidos Activos" styleClass="titulo-principal">
-                  <font>
-                     <Font name="System Bold" size="32.0" />
-                  </font>
-               </Label>
-               <Label text="Administre los pedidos activos del sistema. Use los botones para cambiar estados." style="-fx-text-fill: #64748b;">
-                  <font>
-                     <Font name="System" size="16.0" />
-                  </font>
-               </Label>
-               <VBox fx:id="tablaContainer" alignment="CENTER" maxWidth="1200.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
-                  <padding>
-                     <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
-                  </padding>
-                  <children>
-                     <Label text="Lista de Pedidos Activos" styleClass="tabla-titulo">
-                        <font>
-                           <Font name="System Bold" size="20.0" />
-                        </font>
-                     </Label>
-                     <TableView fx:id="tablaEnvios" prefHeight="600.0" style="-fx-background-color: white;" />
-                     <HBox alignment="CENTER">
-                        <children>
-                           <Button fx:id="refrescarButton" onAction="#onRefrescarClick" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 12px 30px; -fx-background-radius: 8px;" text="🔄 Actualizar Lista" />
-                        </children>
-                     </HBox>
-                  </children>
-               </VBox>
-            </children>
-         </VBox>
-      </ScrollPane>
+      <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE" style="-fx-background-color: transparent;">
+         <tabs>
+            <!-- Tab 1: Gestión de Envíos -->
+            <Tab text="📦 Gestión de Envíos">
+               <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background: transparent;">
+                  <VBox alignment="TOP_CENTER" spacing="25.0">
+                     <padding>
+                        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+                     </padding>
+                     <children>
+                        <Label text="Gestión de Pedidos Activos" styleClass="titulo-principal">
+                           <font>
+                              <Font name="System Bold" size="32.0" />
+                           </font>
+                        </Label>
+                        <Label text="Administre los pedidos activos del sistema. Use los botones para cambiar estados." style="-fx-text-fill: #64748b;">
+                           <font>
+                              <Font name="System" size="16.0" />
+                           </font>
+                        </Label>
+                        <VBox fx:id="tablaContainer" alignment="CENTER" maxWidth="1200.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+                           <padding>
+                              <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+                           </padding>
+                           <children>
+                              <Label text="Lista de Pedidos Activos" styleClass="tabla-titulo">
+                                 <font>
+                                    <Font name="System Bold" size="20.0" />
+                                 </font>
+                              </Label>
+                              <TableView fx:id="tablaEnvios" prefHeight="600.0" style="-fx-background-color: white;" />
+                              <HBox alignment="CENTER">
+                                 <children>
+                                    <Button fx:id="refrescarButton" onAction="#onRefrescarClick" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-size: 16px; -fx-padding: 12px 30px; -fx-background-radius: 8px;" text="🔄 Actualizar Lista" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </ScrollPane>
+            </Tab>
+            
+            <!-- Tab 2: Gestión de Repartidores -->
+            <Tab text="👥 Gestión de Repartidores">
+               <fx:include source="gestionrepartidores.fxml" />
+            </Tab>
+            
+            <!-- Tab 3: Asignación de Envíos y Rutas -->
+            <Tab text="🚚 Asignación de Envíos y Rutas">
+               <fx:include source="asignacionenvios.fxml" />
+            </Tab>
+         </tabs>
+      </TabPane>
    </center>
 </BorderPane>
 

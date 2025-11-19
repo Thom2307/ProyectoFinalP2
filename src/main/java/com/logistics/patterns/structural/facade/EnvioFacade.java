@@ -5,7 +5,7 @@ import com.logistics.model.dto.TarifaDTO;
 import com.logistics.model.entities.Envio;
 import com.logistics.model.entities.Direccion;
 import com.logistics.model.entities.Usuario;
-import com.logistics.patterns.creational.builder.EnvioBuilder;
+import com.logistics.patterns.creacional.builder.EnvioBuilder;
 import com.logistics.service.TarifaService;
 import com.logistics.service.NotificationService;
 import com.logistics.service.EnvioService;

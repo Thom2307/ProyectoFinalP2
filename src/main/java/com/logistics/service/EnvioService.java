@@ -58,8 +58,8 @@ public class EnvioService {
         envio.getEstado().asignar(envio, repartidor);
         envio.setRepartidor(repartidor);
         repartidor.getEnviosAsignados().add(envio);
-        if (repartidor.getDisponibilidad() == com.logistics.model.enums.DisponibilidadRepartidor.DISPONIBLE) {
-            repartidor.setDisponibilidad(com.logistics.model.enums.DisponibilidadRepartidor.EN_RUTA);
+        if (repartidor.getDisponibilidad() == com.logistics.model.enums.EstadoRepartidor.ACTIVO) {
+            repartidor.setDisponibilidad(com.logistics.model.enums.EstadoRepartidor.EN_RUTA);
         }
         repository.save(envio);
         repartidorRepository.save(repartidor);
@@ -91,7 +91,7 @@ public class EnvioService {
             case "ASIGNADO":
                 // Cambiar a estado ASIGNADO desde SOLICITADO
                 if (envio.getEstado().name().equals("SOLICITADO")) {
-                    envio.setEstado(new com.logistics.patterns.behavioral.state.AsignadoState());
+                    envio.setEstado(new com.logistics.patterns.comportamiento.state.AsignadoState());
                 } else {
                     throw new IllegalArgumentException("Solo se puede asignar un envío desde estado SOLICITADO");
                 }
@@ -209,7 +209,7 @@ public class EnvioService {
      * @param estado El estado del patrón State
      * @return El enum EstadoEnvio correspondiente, o SOLICITADO por defecto
      */
-    private EstadoEnvio convertirEstado(com.logistics.patterns.behavioral.state.EnvioState estado) {
+    private EstadoEnvio convertirEstado(com.logistics.patterns.comportamiento.state.EnvioState estado) {
         if (estado == null) return EstadoEnvio.SOLICITADO;
         String name = estado.name();
         try {

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.logistics.viewController.admin.AsignacionEnviosViewController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #2563eb;">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label text="🚚 Asignación de Envíos y Rutas" style="-fx-text-fill: white;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button fx:id="btnRefrescar" onAction="#onRefrescarClick" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8px 20px;" text="🔄 Refrescar" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background: transparent;" vbarPolicy="AS_NEEDED" hbarPolicy="AS_NEEDED">
+         <HBox spacing="20.0" HBox.hgrow="ALWAYS">
+            <padding>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            
+            <!-- Panel Izquierdo: Envíos y Repartidores -->
+            <VBox spacing="20.0" prefWidth="800.0" VBox.vgrow="ALWAYS">
+               <!-- Envíos Disponibles -->
+               <VBox spacing="10.0" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-padding: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+                  <Label text="📦 Envíos Sin Asignar" style="-fx-font-size: 18px; -fx-font-weight: bold;">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  
+                  <TableView fx:id="tablaEnviosDisponibles" prefHeight="450.0" minHeight="300.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colEnvioId" prefWidth="120.0" text="ID Envío" />
+                        <TableColumn fx:id="colEnvioOrigen" prefWidth="200.0" text="Origen" />
+                        <TableColumn fx:id="colEnvioDestino" prefWidth="200.0" text="Destino" />
+                        <TableColumn fx:id="colEnvioEstado" prefWidth="100.0" text="Estado" />
+                        <TableColumn fx:id="colEnvioPeso" prefWidth="80.0" text="Peso (kg)" />
+                        <TableColumn fx:id="colEnvioAcciones" prefWidth="150.0" text="Acciones" />
+                     </columns>
+                  </TableView>
+               </VBox>
+               
+               <!-- Repartidores Disponibles -->
+               <VBox spacing="10.0" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-padding: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+                  <Label text="👥 Repartidores Disponibles" style="-fx-font-size: 18px; -fx-font-weight: bold;">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  
+                  <TableView fx:id="tablaRepartidores" prefHeight="450.0" minHeight="300.0" VBox.vgrow="ALWAYS">
+                     <columns>
+                        <TableColumn fx:id="colRepartidorId" prefWidth="100.0" text="ID" />
+                        <TableColumn fx:id="colRepartidorNombre" prefWidth="200.0" text="Nombre" />
+                        <TableColumn fx:id="colRepartidorZona" prefWidth="100.0" text="Zona" />
+                        <TableColumn fx:id="colRepartidorEstado" prefWidth="120.0" text="Estado" />
+                        <TableColumn fx:id="colRepartidorEnvios" prefWidth="100.0" text="Envíos" />
+                        <TableColumn fx:id="colRepartidorAcciones" prefWidth="120.0" text="Acciones" />
+                     </columns>
+                  </TableView>
+               </VBox>
+               
+               <!-- Panel de Asignación -->
+               <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-padding: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+                  <Label text="⚙️ Asignación de Envío" style="-fx-font-size: 18px; -fx-font-weight: bold;">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  
+                  <VBox spacing="10.0">
+                     <Label text="Seleccionar Repartidor:" />
+                     <ComboBox fx:id="cmbRepartidorAsignar" prefWidth="400.0" />
+                     
+                     <HBox spacing="10.0">
+                        <Button fx:id="btnAsignarEnvio" onAction="#onAsignarEnvioClick" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;" text="✅ Asignar Envío" />
+                        <Button fx:id="btnReasignar" onAction="#onReasignarClick" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;" text="🔄 Reasignar" />
+                        <Button fx:id="btnLiberar" onAction="#onLiberarClick" style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;" text="🔓 Liberar Envío" />
+                     </HBox>
+                  </VBox>
+               </VBox>
+            </VBox>
+            
+            <!-- Panel Derecho: Información de Ruta -->
+            <VBox spacing="10.0" prefWidth="400.0" VBox.vgrow="ALWAYS" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-padding: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+               <Label text="🗺️ Información de Ruta" style="-fx-font-size: 18px; -fx-font-weight: bold;">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+               
+               <Label fx:id="lblRutaInfo" text="Seleccione un envío para ver su ruta" style="-fx-font-size: 14px; -fx-text-fill: #64748b;" />
+               
+               <TextArea fx:id="txtRutaDetalle" prefHeight="600.0" minHeight="400.0" VBox.vgrow="ALWAYS" editable="false" wrapText="true" style="-fx-font-family: monospace; -fx-font-size: 12px;" />
+            </VBox>
+         </HBox>
+      </ScrollPane>
+   </center>
+</BorderPane>
+

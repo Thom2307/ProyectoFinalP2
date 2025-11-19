@@ -1,6 +1,6 @@
 package com.logistics.model.entities;
 
-import com.logistics.patterns.behavioral.strategy.PaymentResult;
+import com.logistics.patterns.comportamiento.strategy.PaymentResult;
 import java.time.LocalDateTime;
 
 public class Pago {

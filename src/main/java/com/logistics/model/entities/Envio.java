@@ -1,6 +1,6 @@
 package com.logistics.model.entities;
 
-import com.logistics.patterns.behavioral.state.EnvioState;
+import com.logistics.patterns.comportamiento.state.EnvioState;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;

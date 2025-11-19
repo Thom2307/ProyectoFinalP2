@@ -3,7 +3,7 @@ package com.logistics.patterns.creational.builder;
 import com.logistics.model.entities.Envio;
 import com.logistics.model.entities.Direccion;
 import com.logistics.model.entities.Usuario;
-import com.logistics.patterns.behavioral.state.SolicitadoState;
+import com.logistics.patterns.comportamiento.state.SolicitadoState;
 import java.time.LocalDateTime;
 
 /**

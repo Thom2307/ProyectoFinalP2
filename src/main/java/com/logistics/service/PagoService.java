@@ -2,10 +2,10 @@ package com.logistics.service;
 
 import com.logistics.model.dto.PagoDTO;
 import com.logistics.model.entities.Pago;
-import com.logistics.patterns.behavioral.strategy.PaymentStrategy;
-import com.logistics.patterns.behavioral.strategy.PaymentData;
-import com.logistics.patterns.behavioral.strategy.PaymentResult;
-import com.logistics.patterns.creational.factory.PagoFactory;
+import com.logistics.patterns.comportamiento.strategy.PaymentStrategy;
+import com.logistics.patterns.comportamiento.strategy.PaymentData;
+import com.logistics.patterns.comportamiento.strategy.PaymentResult;
+import com.logistics.patterns.creacional.factory.PagoFactory;
 import com.logistics.repository.PagoRepository;
 import java.util.UUID;
 import java.util.stream.Collectors;

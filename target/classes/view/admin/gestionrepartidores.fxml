@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane style="-fx-background-color: #f8fafc;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.logistics.viewController.admin.GestionRepartidoresViewController">
+   <top>
+      <HBox alignment="CENTER_LEFT" spacing="20.0" style="-fx-background-color: #10b981;">
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+         <children>
+            <Label text="👥 Gestión de Repartidores" style="-fx-text-fill: white;">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Region HBox.hgrow="ALWAYS" />
+            <Button onAction="#onRefrescarClick" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 8px 20px;" text="🔄 Refrescar" />
+         </children>
+      </HBox>
+   </top>
+   <center>
+      <ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background: transparent;">
+         <VBox spacing="20.0">
+            <padding>
+               <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            </padding>
+            
+            <!-- Formulario de Repartidor -->
+            <VBox spacing="15.0" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-padding: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+               <Label text="Formulario de Repartidor" style="-fx-font-size: 18px; -fx-font-weight: bold;">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+               
+               <GridPane hgap="10.0" vgap="10.0">
+                  <columnConstraints>
+                     <ColumnConstraints hgrow="SOMETIMES" minWidth="100.0" prefWidth="150.0" />
+                     <ColumnConstraints hgrow="ALWAYS" minWidth="200.0" />
+                  </columnConstraints>
+                  
+                  <children>
+                     <Label text="ID Repartidor:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                     <TextField fx:id="txtIdRepartidor" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                     
+                     <Label text="Nombre:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                     <TextField fx:id="txtNombre" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     
+                     <Label text="Documento:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                     <TextField fx:id="txtDocumento" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     
+                     <Label text="Teléfono:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                     <TextField fx:id="txtTelefono" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     
+                     <Label text="Vehículo:" GridPane.columnIndex="0" GridPane.rowIndex="4" />
+                     <TextField fx:id="txtVehiculo" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                     
+                     <Label text="Disponibilidad:" GridPane.columnIndex="0" GridPane.rowIndex="5" />
+                     <ComboBox fx:id="cmbDisponibilidad" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     
+                     <Label text="Zona Cobertura:" GridPane.columnIndex="0" GridPane.rowIndex="6" />
+                     <ComboBox fx:id="cmbZonaCobertura" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                     
+                     <Label text="Ruta Asignada:" GridPane.columnIndex="0" GridPane.rowIndex="7" />
+                     <ComboBox fx:id="cmbRuta" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                  </children>
+               </GridPane>
+               
+               <HBox spacing="10.0" alignment="CENTER">
+                  <children>
+                     <Button fx:id="btnCrear" onAction="#onCrearClick" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;" text="➕ Crear Repartidor" />
+                     <Button fx:id="btnActualizar" onAction="#onActualizarClick" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;" text="✏️ Actualizar" />
+                     <Button fx:id="btnLimpiar" onAction="#onLimpiarClick" style="-fx-background-color: #64748b; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;" text="🧹 Limpiar" />
+                     <Button fx:id="btnCancelar" onAction="#onCancelarClick" style="-fx-background-color: #ef4444; -fx-text-fill: white; -fx-font-size: 14px; -fx-padding: 10px 20px;" text="❌ Cancelar" />
+                  </children>
+               </HBox>
+            </VBox>
+            
+            <!-- Filtros y Búsqueda -->
+            <HBox spacing="10.0" alignment="CENTER_LEFT" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-padding: 15px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+               <children>
+                  <Label text="Filtrar por Estado:" />
+                  <ComboBox fx:id="cmbFiltroEstado" onAction="#onFiltroEstadoChange" prefWidth="150.0" />
+                  <Label text="Filtrar por Zona:" />
+                  <ComboBox fx:id="cmbFiltroZona" onAction="#onFiltroZonaChange" prefWidth="150.0" />
+                  <Label text="Buscar:" />
+                  <TextField fx:id="txtBuscar" prefWidth="200.0" promptText="Nombre o documento" />
+                  <Button fx:id="btnBuscar" onAction="#onBuscarClick" style="-fx-background-color: #2563eb; -fx-text-fill: white;" text="🔍 Buscar" />
+                  <Button fx:id="btnLimpiarFiltros" onAction="#onLimpiarFiltrosClick" style="-fx-background-color: #64748b; -fx-text-fill: white;" text="Limpiar Filtros" />
+               </children>
+            </HBox>
+            
+            <!-- Tabla de Repartidores -->
+            <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-padding: 20px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 15, 0, 0, 5);">
+               <Label text="Lista de Repartidores" style="-fx-font-size: 18px; -fx-font-weight: bold;">
+                  <font>
+                     <Font name="System Bold" size="18.0" />
+                  </font>
+               </Label>
+               
+               <TableView fx:id="tablaRepartidores" prefHeight="400.0">
+                  <columns>
+                     <TableColumn fx:id="colId" prefWidth="100.0" text="ID" />
+                     <TableColumn fx:id="colNombre" prefWidth="150.0" text="Nombre" />
+                     <TableColumn fx:id="colDocumento" prefWidth="120.0" text="Documento" />
+                     <TableColumn fx:id="colTelefono" prefWidth="120.0" text="Teléfono" />
+                     <TableColumn fx:id="colDisponibilidad" prefWidth="120.0" text="Estado" />
+                     <TableColumn fx:id="colZona" prefWidth="100.0" text="Zona" />
+                     <TableColumn fx:id="colRuta" prefWidth="250.0" text="Ruta Asignada" />
+                     <TableColumn fx:id="colEnviosAsignados" prefWidth="120.0" text="Envíos" />
+                     <TableColumn fx:id="colAcciones" prefWidth="250.0" text="Acciones" />
+                  </columns>
+               </TableView>
+            </VBox>
+         </VBox>
+      </ScrollPane>
+   </center>
+</BorderPane>
+

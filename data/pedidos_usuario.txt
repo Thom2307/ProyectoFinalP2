@@ -132,3 +132,263 @@ Repartidor: No asignado
 Servicios Adicionales: FIRMA, PRIORIDAD
 --------------------------------------------------------------------------------
 
+Fecha de Creación: 2025-11-18 12:49:25
+ID Envío: env5ca07284
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Calle 15 #4-25, Armenia
+Peso: 4.0 kg
+Costo: $9786,94
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: FRAGIL
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 12:50:05
+ID Envío: env61fe8911
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 20 #5-30, Calarcá
+Destino: Carrera 14 #6-10, Armenia
+Peso: 6.0 kg
+Costo: $14471,78
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: FIRMA
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 12:49:25
+ID Envío: env5ca07284
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Calle 15 #4-25, Armenia
+Peso: 4.0 kg
+Costo: $9786,94
+Estado: CANCELADO
+Repartidor: No asignado
+Servicios Adicionales: FRAGIL
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 12:50:05
+ID Envío: env61fe8911
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 20 #5-30, Calarcá
+Destino: Carrera 14 #6-10, Armenia
+Peso: 6.0 kg
+Costo: $14471,78
+Estado: ASIGNADO
+Repartidor: No asignado
+Servicios Adicionales: FIRMA
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 12:50:05
+ID Envío: env61fe8911
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 20 #5-30, Calarcá
+Destino: Carrera 14 #6-10, Armenia
+Peso: 6.0 kg
+Costo: $14471,78
+Estado: EN_RUTA
+Repartidor: No asignado
+Servicios Adicionales: FIRMA
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 15:50:26
+ID Envío: envf430b2da
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 6.0 kg
+Costo: $11471,78
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 15:50:26
+ID Envío: envf430b2da
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 6.0 kg
+Costo: $11471,78
+Estado: ASIGNADO
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 15:50:26
+ID Envío: envf430b2da
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 6.0 kg
+Costo: $11471,78
+Estado: EN_RUTA
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 15:50:26
+ID Envío: envf430b2da
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 6.0 kg
+Costo: $11471,78
+Estado: ENTREGADO
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 16:11:28
+ID Envío: env3572c93f
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 4.0 kg
+Costo: $9471,78
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 16:11:28
+ID Envío: env3572c93f
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 4.0 kg
+Costo: $9471,78
+Estado: ASIGNADO
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 16:11:28
+ID Envío: env3572c93f
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 4.0 kg
+Costo: $9471,78
+Estado: EN_RUTA
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 16:35:08
+ID Envío: env5edf199b
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle 15 #4-25, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 43.0 kg
+Costo: $55749,74
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: PRIORIDAD
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 16:35:08
+ID Envío: env5edf199b
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle 15 #4-25, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 43.0 kg
+Costo: $55749,74
+Estado: ASIGNADO
+Repartidor: No asignado
+Servicios Adicionales: PRIORIDAD
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 16:35:08
+ID Envío: env5edf199b
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle 15 #4-25, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 43.0 kg
+Costo: $55749,74
+Estado: EN_RUTA
+Repartidor: No asignado
+Servicios Adicionales: PRIORIDAD
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 16:35:08
+ID Envío: env5edf199b
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle 15 #4-25, Armenia
+Destino: Carrera 20 #5-30, Calarcá
+Peso: 43.0 kg
+Costo: $55749,74
+Estado: ENTREGADO
+Repartidor: No asignado
+Servicios Adicionales: PRIORIDAD
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 22:07:01
+ID Envío: ENV002
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle Principal #10-20, Filandia
+Destino: Avenida Central #8-25, Montenegro
+Peso: 5.0 kg
+Costo: $11419,08
+Estado: ASIGNADO
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 22:07:01
+ID Envío: ENV002
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Calle Principal #10-20, Filandia
+Destino: Avenida Central #8-25, Montenegro
+Peso: 5.0 kg
+Costo: $11419,08
+Estado: EN_RUTA
+Repartidor: No asignado
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 22:07:01
+ID Envío: ENV003
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 10 #8-15, Circasia
+Destino: Calle Real #12-25, Salento
+Peso: 1.8 kg
+Costo: $7486,38
+Estado: EN_RUTA
+Repartidor: Sandra Cardona (ID: REP005)
+Servicios Adicionales: Ninguno
+--------------------------------------------------------------------------------
+
+Fecha de Creación: 2025-11-18 22:10:47
+ID Envío: envb70935ca
+ID Usuario: usuario
+Nombre Usuario: Usuario Prueba
+Origen: Carrera 14 #6-10, Armenia
+Destino: Carrera 3 #2-8, Génova
+Peso: 5.0 kg
+Costo: $15395,41
+Estado: SOLICITADO
+Repartidor: No asignado
+Servicios Adicionales: FIRMA
+--------------------------------------------------------------------------------
+
