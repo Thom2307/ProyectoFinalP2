@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" spacing="30.0" style="-fx-background-color: linear-gradient(to bottom, #2563eb, #1e40af);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.logistics.viewController.MainMenuController">
+   <padding>
+      <Insets bottom="40.0" left="40.0" right="40.0" top="40.0" />
+   </padding>
+   <children>
+      <Label text="Sistema de Logística y Envíos Urbanos" style="-fx-text-fill: white;">
+         <font>
+            <Font name="System Bold" size="36.0" />
+         </font>
+      </Label>
+      <Label text="Seleccione su tipo de acceso" style="-fx-text-fill: rgba(255, 255, 255, 0.9);">
+         <font>
+            <Font name="System" size="18.0" />
+         </font>
+      </Label>
+      <VBox alignment="CENTER" maxWidth="500.0" spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 16px; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 20, 0, 0, 8);">
+         <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+         </padding>
+         <children>
+            <Label text="¿Cómo desea ingresar?" style="-fx-text-fill: #1e293b;">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Button fx:id="btnUsuario" maxWidth="350.0" minHeight="60.0" onAction="#onUsuarioClick" prefHeight="60.0" prefWidth="350.0" style="-fx-background-color: #2563eb; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 8px;" text="👤 Ingresar como Usuario" />
+            <Button fx:id="btnAdmin" maxWidth="350.0" minHeight="60.0" onAction="#onAdminClick" prefHeight="60.0" prefWidth="350.0" style="-fx-background-color: #10b981; -fx-text-fill: white; -fx-font-size: 16px; -fx-font-weight: bold; -fx-background-radius: 8px;" text="🔐 Ingresar como Administrador" />
+         </children>
+      </VBox>
+   </children>
+</VBox>
+

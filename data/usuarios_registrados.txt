@@ -1,0 +1,16 @@
+================================================================================
+USUARIO DE PRUEBA - SISTEMA DE LOGÍSTICA
+================================================================================
+
+Fecha de Registro: 2025-11-18 21:43:17
+
+ID Usuario: ufef09eee
+Nombre: María Lucía 
+Correo: marial@gmail.com
+Teléfono: 3106340575
+Contraseña: 1234
+Es Administrador: No
+Número de Direcciones: 0
+Métodos de Pago: 
+
+================================================================================
